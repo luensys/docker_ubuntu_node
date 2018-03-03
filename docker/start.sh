@@ -12,6 +12,7 @@ cd /usr/src/app
 # npm 추가시키고 싶을 때는 아래에 넣어 한 번 실행하자.
 #npm install --save body-parser express-generator express mongodb mongoose
 #npm install --save
+node app.js
 
 
 # 새 express app 만들 때 아래 명령어 사용

@@ -1,10 +1,8 @@
-var Client = require('mongodb').MongoClient;
-
-Client.connect('mongodb://localhost:27017/school', function(error, db){
-    if(error) {
-        console.log(error);
-    } else {
-        console.log("connected:"+db);
-        db.close();
-    }
+/* index.js */
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test'); // 기본 설정에 따라 포트가 상이 할 수 있습니다.
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+	console.log("mongo db connection OK.");
 });

@@ -16,10 +16,12 @@ RUN apt-get install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install nodejs -y
 
-# 현재 프로젝트에 기본적으로 필요한 npm 설치
-RUN npm install -g express-generator
-RUN npm install express -g
-RUN npm install mongodb -g
+#mongodb 설치
+RUN gpg --keyserver keyserver.ubuntu.com --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+RUN gpg --export --armor 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 | apt-key add -
+RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+RUN apt-get update
+RUN apt-get install -y mongodb-org
 
 # 실행 명령 root 폴더에 추가
 ADD start.sh /root/start.sh
@@ -27,8 +29,5 @@ ADD start.sh /root/start.sh
 # shell의 경우 윈도우에서 작업한 것이 바로 동작되지는 않아 예외코드를 넣은 것임
 RUN dos2unix /root/start.sh /root/start.sh
 
-WORKDIR /usr/src/app/node-tutorial-for-frontend-devs-master
-
-EXPOSE 3000
 VOLUME ["/usr/src/app"]
 CMD ["sh", "/root/start.sh"]

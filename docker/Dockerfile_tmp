@@ -1,0 +1,9 @@
+﻿
+# 앱 디렉토리 생성
+WORKDIR /usr/src/app
+
+# 앱 소스 추가
+COPY . .
+
+EXPOSE 8080
+

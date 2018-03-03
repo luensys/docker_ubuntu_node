@@ -1,11 +1,14 @@
 sleep 2
-cd /usr/src/app
+#프로젝트 폴더로 이동
+cd /usr/src/app/node-tutorial-for-frontend-devs-master
 
-npm link express
+npm install
+npm start
+
 
 # 새 express app 만들 때 아래 명령어 사용
 # express my-app
 
-cd my-app && npm install
-
-npm start
+#Express Start
+#cd my-app && npm install
+#npm start

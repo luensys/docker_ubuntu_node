@@ -6,7 +6,8 @@ mongod --config /etc/mongod.conf &
 #프로젝트 폴더로 이동
 cd /usr/src/app
 
-#npm install
+#npm init
+npm install
 #npm start
 
 # npm 추가시키고 싶을 때는 아래에 넣어 한 번 실행하자.

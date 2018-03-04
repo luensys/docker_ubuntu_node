@@ -15,6 +15,7 @@ RUN apt-get install dos2unix -y
 RUN apt-get install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install nodejs -y
+RUN npm install webpack -g
 
 #mongodb 설치
 RUN gpg --keyserver keyserver.ubuntu.com --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5

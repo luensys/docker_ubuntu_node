@@ -8,7 +8,7 @@ RUN sed -i 's%archive.ubuntu.com%ftp.daum.net/%' /etc/apt/sources.list
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
-#윈도우 작업 된 파일을 변경하기 위한 패키지 설치
+# 윈도우 작업 된 파일을 변경하기 위한 패키지 설치
 RUN apt-get install dos2unix -y
 
 # Node 설치(8버전)
@@ -17,12 +17,20 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install nodejs -y
 RUN npm install webpack -g
 
-#mongodb 설치
+# mongodb 설치
 RUN gpg --keyserver keyserver.ubuntu.com --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 RUN gpg --export --armor 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 | apt-key add -
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 RUN apt-get update
 RUN apt-get install -y mongodb-org
+
+# 아래 구역은 기본 작업 후 소스 변경만 있을 때는 실행하지 않아도 됨
+##################################################################################################################################
+
+# vue-cli 실행을 위해서 필요
+RUN apt-get install git -y
+
+##################################################################################################################################
 
 # 실행 명령 root 폴더에 추가
 ADD start.sh /root/start.sh

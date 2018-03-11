@@ -14,6 +14,7 @@
     "express": "^4.16.2",
     "express-generator": "^4.15.5",
     "mongodb": "^3.0.3",
-    "mongoose": "^5.0.7"
+    "mongoose": "^5.0.7",
+    "vue": "^2.5.14"
   }
 }

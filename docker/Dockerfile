@@ -32,11 +32,15 @@ RUN apt-get install git -y
 
 ##################################################################################################################################
 
+# vue-js 사용을 위한 명령어
+RUN npm install --global vue-cli
+
 # 실행 명령 root 폴더에 추가
 ADD start.sh /root/start.sh
 
 # shell의 경우 윈도우에서 작업한 것이 바로 동작되지는 않아 예외코드를 넣은 것임
 RUN dos2unix /root/start.sh /root/start.sh
 
+EXPOSE 8080
 VOLUME ["/usr/src/app"]
 CMD ["sh", "/root/start.sh"]

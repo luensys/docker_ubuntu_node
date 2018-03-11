@@ -6,4 +6,4 @@ docker rm vuejs
 
 docker build --build-arg SERVICE_STATE=dev -t vuejs ./docker
 
-docker run -d --rm --name vuejs -p 8000:3000 -v %CURPATH%:/usr/src/app vuejs
+docker run -d --rm --name vuejs -p 8080:8080 -p 8000:3000 -v %CURPATH%:/usr/src/app vuejs

@@ -16,7 +16,7 @@ mongod --config /etc/mongod.conf &
 
 # 웹팩을 이용한 vuejs 튜토리얼 실습
 cd /usr/src/app/my-project
-#npm install
+npm install
 npm run dev
 
 

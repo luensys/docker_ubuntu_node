@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>my-project</title>
+	</head>
+	<body>
+		<div id="app">
+			<ol>
+				<todo-item></todo-item>
+			</ol>
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	
+<script>
+	Vue.component('todo-item', {
+		template: '<li>할일 항목 하나입니다.</li>'
+	});
+
+	var app = new Vue({
+		el: '#app'
+	});
+</script>
+
+</html>
+
+
+
+
